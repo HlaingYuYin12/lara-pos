@@ -1,0 +1,10 @@
+laravel socialite --->google,fb,github can login
+
+
+google client id  --->  https://console.cloud.google.com/
+                                        api and services > credentials > create-project > Oauth client ID
+                                        redirect path တူရမယ်
+
+
+github client id ---> github.com
+                    settings > developer settings > Oauth apps ?
