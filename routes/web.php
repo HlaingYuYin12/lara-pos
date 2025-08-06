@@ -41,6 +41,12 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
+<<<<<<< HEAD
 Route::get('admin/home',function(){
     return view("admin.home");
+=======
+//admin
+Route::get('admin/home',function(){
+    return view('admin.home');
+>>>>>>> admin
 });
