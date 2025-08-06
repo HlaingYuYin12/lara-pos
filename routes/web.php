@@ -41,12 +41,13 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-<<<<<<< HEAD
-Route::get('admin/home',function(){
-    return view("admin.home");
-=======
 //admin
 Route::get('admin/home',function(){
     return view('admin.home');
->>>>>>> admin
+});
+
+
+//customer
+Route::get('customer/home',function(){
+    return view('customer.home');
 });
