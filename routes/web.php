@@ -50,3 +50,9 @@ Route::get('admin/home',function(){
     return view('admin.home');
 >>>>>>> admin
 });
+
+
+//customer
+Route::get('customer/home',function(){
+    return view('customer.home');
+});
