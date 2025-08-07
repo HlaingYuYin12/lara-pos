@@ -118,9 +118,10 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    <span>Logout</span></a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <input type="submit" value="Logout" class="btn btn-primary">
+                </form>
             </li>
 
 
