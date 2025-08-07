@@ -45,3 +45,9 @@ require __DIR__.'/auth.php';
 Route::get('admin/home',function(){
     return view('admin.home');
 });
+
+
+//customer
+Route::get('customer/home',function(){
+    return view('customer.home');
+});
