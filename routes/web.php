@@ -44,10 +44,10 @@ require __DIR__.'/auth.php';
 //admin
 Route::get('admin/home',function(){
     return view('admin.home');
-});
+})->name('adminDashboard');
 
 
 //customer
 Route::get('customer/home',function(){
     return view('customer.home');
-});
+})->name('userDashboard');
