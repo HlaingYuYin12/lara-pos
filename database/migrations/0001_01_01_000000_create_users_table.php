@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('profile')->nullable();
-            $table->char('role',20)->default('role');
+            $table->char('role',20)->default('user');
             // $table->rememberToken();
             $table->timestamps();
         });

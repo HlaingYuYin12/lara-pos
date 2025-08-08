@@ -34,6 +34,15 @@ class ProviderController extends Controller
         ]);  //if gmail is something change we must use updateOrCreate() instead of create()
         Auth::login($user);
 
+        // dd(Auth::user()->role);
+        if(Auth::user()->role == 'admin'){
+            return to_route('adminDashboard');
+        }
+
+        if(Auth::user()->role == 'user'){
+            return to_route('userDashboard');
+        }
+
         return redirect('/dashboard');
 
 
