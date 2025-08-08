@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
 
+use App\Http\Controllers\AuthController;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProviderController;
 
@@ -24,9 +25,12 @@ Route::get('/auth/{provider}/callback', [ProviderController::class,'callback']);
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+//     // dd('hello');
+// });
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -51,3 +55,11 @@ Route::get('admin/home',function(){
 Route::get('customer/home',function(){
     return view('customer.home');
 })->name('userDashboard');
+
+
+
+Route::redirect('/', 'auth/login');
+
+Route::get('auth/register',[AuthController::class,'registerPage'])->name('userRegister');
+Route::get('auth/login',[AuthController::class,'loginPage'])->name('userLogin');
+
