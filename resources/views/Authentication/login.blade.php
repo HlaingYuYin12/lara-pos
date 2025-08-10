@@ -13,11 +13,18 @@
 
             @csrf
             <div class="mb-3">
-              <input type="email" class="form-control"name="email" value="{{ old('email')}}" placeholder="Enter Email Address...">
+              <input type="email" class="form-control @error('email') is-invalid @enderror"name="email"  value="{{ old('email')}}" placeholder="Enter Email Address...">
+              @error('email')
+                <small class="invalid-feedback">{{ $message }}</small>
+              @enderror
+
             </div>
             <div class="mb-3">
-              <input type="password" class="form-control" name="password" value="{{ old('password')}}" placeholder="Password">
+              <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password')}}" placeholder="Password">
             </div>
+             @error('password')
+                <small class="invalid-feedback">{{ $message }}</small>
+              @enderror
             {{-- <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="rememberMe">
               <label class="form-check-label" for="rememberMe">Remember Me</label>
