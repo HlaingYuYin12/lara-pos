@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () { //login ၀◌င်ပြီး�
         //category
         Route::prefix('category')->group(function () {
             Route::get('list', [CategoryController::class, 'list'])->name('categoryList');
-            Route::get('create', [CategoryController::class, 'create'])->name('categoryList');
+            Route::get('create', [CategoryController::class, 'create'])->name('categoryCreate');
 
         });
 
