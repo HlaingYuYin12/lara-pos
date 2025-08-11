@@ -74,11 +74,14 @@
                                 </div>
                             </div>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
+<<<<<<< HEAD
+=======
 
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <input type="submit" value="Logout" class="btn btn-success">
                             </form>
+>>>>>>> master
                         </div>
                         <div class="d-flex m-3 me-0">
                             <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
