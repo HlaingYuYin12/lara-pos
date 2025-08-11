@@ -6,6 +6,8 @@ use App\Http\Controllers\AuthController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\User\UserDashboardController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 
 
 // Route::get('/auth/redirect', function () {
@@ -44,9 +46,7 @@ Route::middleware('auth')->group(function () { //login ၀◌င်ပြီး�
 
     //admin
     Route::group([ 'prefix' => 'admin' , 'middleware' => 'admin' ],function(){
-        Route::get('/home',function(){
-        return view('admin.home');
-    })->name('adminDashboard');
+        Route::get('/home',[AdminDashboardController::class,'index'])->name('adminDashboard');
 
     });
 
@@ -54,9 +54,7 @@ Route::middleware('auth')->group(function () { //login ၀◌င်ပြီး�
 
     //user
     Route::group([ 'prefix' => 'user' , 'middleware' => 'user'],function(){
-        Route::get('/home',function(){
-        return view('user.home');
-    })->name('userDashboard');
+        Route::get('/home',[UserDashboardController::class,'index'])->name('userDashboard');
 
 });
 
