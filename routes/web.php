@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
@@ -47,6 +48,14 @@ Route::middleware('auth')->group(function () { //login ၀◌င်ပြီး�
     //admin
     Route::group([ 'prefix' => 'admin' , 'middleware' => 'admin' ],function(){
         Route::get('/home',[AdminDashboardController::class,'index'])->name('adminDashboard');
+
+        //category
+        Route::prefix('category')->group(function () {
+            Route::get('list', [CategoryController::class, 'list'])->name('categoryList');
+            Route::get('create', [CategoryController::class, 'create'])->name('categoryList');
+
+        });
+
 
     });
 

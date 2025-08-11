@@ -55,14 +55,14 @@
 
 
             <li class="nav-item ">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('categoryList')}}">
                     <i class="fa-solid fa-layer-group"></i>
                     <span>Category</span></a>
             </li>
 
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('categoryCreate')}}">
                     <i class="fa-solid fa-clone"></i>
                     <span>Add Category</span></a>
             </li>
