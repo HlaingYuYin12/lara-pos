@@ -52,7 +52,9 @@ Route::middleware('auth')->group(function () { //login ၀◌င်ပြီး�
         //category
         Route::prefix('category')->group(function () {
             Route::get('list', [CategoryController::class, 'list'])->name('categoryList');
-            Route::get('create', [CategoryController::class, 'create'])->name('categoryCreate');
+            Route::get('create', [CategoryController::class, 'createPage'])->name('categoryCreatePage');
+            Route::post('create', [CategoryController::class, 'create'])->name('categoryCreate');
+
 
         });
 
@@ -73,12 +75,19 @@ require __DIR__.'/auth.php';
 
 
 //admin
-Route::get('admin/home',function(){
-    return view('admin.home');
-})->name('adminDashboard');
+// Route::get('admin/home',function(){
+//     return view('admin.home');
+// })->name('adminDashboard');
 
 
 //customer
-Route::get('customer/home',function(){
-    return view('customer.home');
-})->name('userDashboard');
+// Route::get('customer/home',function(){
+//     return view('customer.home');
+// })->name('userDashboard');
+
+
+
+Route::redirect('/', 'auth/login');
+
+Route::get('auth/register',[AuthController::class,'registerPage'])->name('userRegister');
+Route::get('auth/login',[AuthController::class,'loginPage'])->name('userLogin');

@@ -8,11 +8,16 @@
                 <h5 class="mb-0 text-primary">Add Category Page</h5>
             </div>
             <div class="card-body">
-                <form action="#" method="post">
+                <form action="{{ route('categoryCreate')}}" method="post">
+                    @csrf
                     <div class="mb-3">
                         <label for="categoryName" class="form-label mb-3">Category Name</label>
-                        <input type="text" class="form-control" id="categoryName" name="category_name"
+                        <input type="text" class="form-control  @error('category') is-invalid @enderror" id="categoryName" name="category" value="{{ old('category')}}"
                             placeholder="Enter category name">
+                        @error('category')
+                            <small class="text-danger"> {{ $message}} </small>
+                        @enderror
+
                     </div>
                     <button type="submit" class="btn btn-primary">Create</button>
                 </form>

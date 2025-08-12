@@ -62,7 +62,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('categoryCreate')}}">
+                <a class="nav-link" href="{{ route('categoryCreatePage')}}">
                     <i class="fa-solid fa-clone"></i>
                     <span>Add Category</span></a>
             </li>
@@ -226,6 +226,7 @@
 
             <!-- End of Main Content -->
 
+            @include('sweetalert::alert')
 
 
         </div>
