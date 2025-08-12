@@ -6,7 +6,7 @@
             <div class="content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5 class="text-primary">Category List</h5>
-                    <a href="{{ route('categoryCreate')}}" class="">+ Add Category</a>
+                    <a href="{{ route('categoryCreatePage')}}" class="">+ Add Category</a>
                 </div>
 
                 <div class="card">
