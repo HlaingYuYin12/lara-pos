@@ -11,7 +11,8 @@ class CategoryController extends Controller
 {
     //
     public function list(){
-        return view('admin.category.list');
+        $data = Category::orderBy('created_at','desc')->paginate(5);
+        return view('admin.category.list',compact('data'));
     }
 
     public function createPage(){
