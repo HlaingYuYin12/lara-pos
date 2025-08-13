@@ -41,7 +41,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user']], function ()
 
 });
 
-});
 
 require __DIR__.'/auth.php';
 
