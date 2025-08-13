@@ -46,7 +46,7 @@ class ProviderController extends Controller
         return redirect('/dashboard');
 
 
-        // Auth::logout($user);
+        Auth::logout($user);
     }
 
 }
