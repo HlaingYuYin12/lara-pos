@@ -23,12 +23,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::get('/home', [AdminDashboardController::class, 'index'])->name('adminDashboard');
 
-    //category
-    Route::prefix('category')->group(function () {
+        //category
+        Route::prefix('category')->group(function () {
+            Route::get('list', [CategoryController::class, 'list'])->name('categoryList');
+            Route::get('create', [CategoryController::class, 'createPage'])->name('categoryCreatePage');
+            Route::post('create', [CategoryController::class, 'create'])->name('categoryCreate');
 
-        Route::get('list', [CategoryController::class, 'list'])->name('categoryList');
-        Route::get('create', [CategoryController::class, 'createPage'])->name('categoryCreatePage');
-        Route::post('create', [CategoryController::class, 'create'])->name('categoryCreate');
 
     });
 
@@ -40,3 +40,26 @@ Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user']], function ()
     Route::get('/home', [UserDashboardController::class, 'index'])->name('userDashboard');
 
 });
+
+});
+
+require __DIR__.'/auth.php';
+
+
+//admin
+// Route::get('admin/home',function(){
+//     return view('admin.home');
+// })->name('adminDashboard');
+
+
+//customer
+// Route::get('customer/home',function(){
+//     return view('customer.home');
+// })->name('userDashboard');
+
+
+
+Route::redirect('/', 'auth/login');
+
+Route::get('auth/register',[AuthController::class,'registerPage'])->name('userRegister');
+Route::get('auth/login',[AuthController::class,'loginPage'])->name('userLogin');
