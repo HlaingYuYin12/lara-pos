@@ -28,7 +28,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->created_at->format('j-F-Y') }}</td>
                                         <td>
-                                            <a href="" class="btn btn-outline-secondary"><i
+                                            <a href="{{ route('categoryEdit',$item->id)}}" class="btn btn-outline-secondary"><i
                                                     class="fa-solid fa-pen-to-square"></i></a>
                                         </td>
                                         <td>

@@ -48,4 +48,30 @@ class CategoryController extends Controller
 
         return back();
     }
+
+    //edit category
+    public function edit($id){
+        $data = Category::where('id',$id)->first();
+
+        // dd($data->toArray());
+
+        return view('admin.category.edit',compact('data'));
+    }
+
+
+    //update category
+    public function update(Request $request){
+        // dd($request->all());
+        $validator = $request->validate([
+            'category' => 'required|unique:categories,name,'.$request->id
+        ]);
+
+        Category::where('id',$request->categoryID)->update([
+            'name' => $request->category
+        ]);
+
+        Alert::success('Update Success', 'Category name is updated successfully');
+
+        return to_route('categoryList');
+    }
 }
