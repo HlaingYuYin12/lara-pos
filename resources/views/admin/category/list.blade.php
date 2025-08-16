@@ -32,7 +32,7 @@
                                                     class="fa-solid fa-pen-to-square"></i></a>
                                         </td>
                                         <td>
-                                            <a href="" class="btn btn-outline-danger"><i
+                                            <a href="{{ route('categoryDelete',$item->id)}}" class="btn btn-outline-danger"><i
                                                     class="fa-solid fa-trash"></i></a>
 
                                         </td>

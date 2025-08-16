@@ -11,5 +11,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         Route::get('list', [CategoryController::class, 'list'])->name('categoryList');
         Route::get('create', [CategoryController::class, 'createPage'])->name('categoryCreatePage');
         Route::post('create', [CategoryController::class, 'create'])->name('categoryCreate');
+        Route::get('delete/{id}', [CategoryController::class, 'delete'])->name('categoryDelete');
+
     });
 });
