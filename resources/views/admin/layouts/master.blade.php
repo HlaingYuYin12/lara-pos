@@ -69,7 +69,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{route('productList')}}">
                     <i class="fa-solid fa-list"></i>
                     <span>Product Details</span></a>
             </li>
