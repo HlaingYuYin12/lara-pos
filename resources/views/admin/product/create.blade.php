@@ -43,6 +43,10 @@
                                             <label for="categoryName" class="form-label mb-3">Category Name</label>
                                             <select name="" id="" class="form-control">
                                                 <option value="">Choose category...</option>
+
+                                                @foreach ($categories as $item)
+                                                    <option value="{{ $item->id}}">{{ $item->name }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -61,7 +65,7 @@
                                     <div class="col">
                                         <div class="mb-3">
                                             <label for="description" class="form-label mb-3">Description</label>
-                                            <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+                                            <textarea name="description" id="" cols="30" rows="10" class="form-control" placeholder="Enter Description..."></textarea>
                                         </div>
                                     </div>
                                 </div>
