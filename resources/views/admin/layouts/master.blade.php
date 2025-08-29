@@ -76,7 +76,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{route('productCreatePage')}}">
                     <i class="fa-solid fa-plus"></i>
                     <span>Add Item</span></a>
             </li>

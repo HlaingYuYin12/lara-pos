@@ -21,5 +21,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::prefix('product')->group(function () {
         Route::get('list',[ProductController::class,'list'])->name('productList');
         Route::get('create',[ProductController::class,'create'])->name('productCreatePage');
+        Route::post('create',[ProductController::class,'productCreate'])->name('productCreate');
     });
 });
