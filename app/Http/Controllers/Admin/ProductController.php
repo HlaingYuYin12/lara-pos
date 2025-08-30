@@ -1,17 +1,20 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\Admin\ProductController;
 
 class ProductController extends Controller
 {
     //product list page
     public function list()
     {
-        return view('admin.product.list');
+        $products = Product::get();
+        return view('admin.product.list',compact('products'));
     }
 
     //product create page
@@ -27,6 +30,20 @@ class ProductController extends Controller
     {
         // dd($request->all());
         $this->validationCheck($request, "create");
+
+        //data request
+        $data = $this->requestProductData($request);
+        if($request->hasFile('image')){
+            $fileName = uniqid() . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path().'/productImages/',$fileName);
+            $data['image'] = $fileName;
+        }
+
+        Product::create($data);
+
+        Alert::success('Create Success', 'Product list is created successfully');
+
+        return to_route('productList');
 
     }
 
@@ -49,5 +66,15 @@ class ProductController extends Controller
 
         $validator = $request->validate($rules, $message);
 
+    }
+
+    private function requestProductData($request){
+        return [
+            'name' =>  $request->name,
+            'price' =>  $request->price,
+            'description' =>  $request->description,
+            'category_id' =>  $request->category,
+            'count' =>  $request->count,
+        ];
     }
 }
