@@ -56,6 +56,22 @@ class ProductController extends Controller
     }
 
 
+
+    //details products
+    public function details($id){
+        // $data = Product::where('id',$id)->first();
+        // dd($data->toArray());
+
+        $data = Product::select('products.id','products.name','products.price','products.description','products.category_id','products.count','products.image', 'categories.name as category_name')
+                        ->leftJoin('categories','products.category_id','=','categories.id') //ဘယ်tableကိုjoin, ဘယ်လိုjoinမှာလဲ ,
+                        ->where('products.id',$id)->first();
+        // dd($data->toArray());
+
+
+        return view('admin.product.details',compact('data'));
+    }
+
+
     //create update validation check
     private function validationCheck($request, $action)
     {
