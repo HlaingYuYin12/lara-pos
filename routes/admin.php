@@ -24,5 +24,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
         Route::post('create',[ProductController::class,'productCreate'])->name('productCreate');
         Route::get('delete/{id}', [ProductController::class, 'delete'])->name('productDelete');
         Route::get('details/{id}',[ProductController::class,'details'])->name('productDetails');
+        Route::get('edit/{id}', [ProductController::class, 'edit'])->name('productEdit');
     });
 });

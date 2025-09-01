@@ -71,6 +71,18 @@ class ProductController extends Controller
         return view('admin.product.details',compact('data'));
     }
 
+    //edit products
+    public function edit($id){
+
+        $products = Product::select('products.id','products.name','products.price','products.description','products.category_id','products.count','products.image', 'categories.name as category_name')
+                        ->leftJoin('categories','products.category_id','=','categories.id') //ဘယ်tableကိုjoin, ဘယ်လိုjoinမှာလဲ ,
+                        ->where('products.id',$id)->first();
+
+        $categories = Category::get();
+
+        return view('admin.product.edit',compact('products','categories'));
+    }
+
 
     //create update validation check
     private function validationCheck($request, $action)

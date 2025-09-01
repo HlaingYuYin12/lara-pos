@@ -29,8 +29,10 @@
                                     <td> {{ $item->price }} MMK</td>
                                     <td> {{ $item->count }} </td>
                                     <td style="width: 20%">
-                                        <i class="fa-solid fa-eye btn btn-primary w-25"></i>
                                         <a href="{{ route('productDetails',$item->id)}}">
+                                            <i class="fa-solid fa-eye btn btn-primary w-25"></i>
+                                        </a>
+                                        <a href="{{ route('productEdit',$item->id)}}">
                                             <i class="fa-solid fa-pen-to-square btn btn-secondary w-25"></i>
                                         </a>
                                         <a href="{{ route('productDelete', $item->id) }}">
