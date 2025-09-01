@@ -47,6 +47,15 @@ class ProductController extends Controller
 
     }
 
+
+    //delete products
+    public function delete($id){
+        Product::where('id',$id)->delete();
+        Alert::success('Delete Success', 'Product list is deleted successfully');
+        return back();
+    }
+
+
     //create update validation check
     private function validationCheck($request, $action)
     {
