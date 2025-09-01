@@ -5,7 +5,7 @@
         <div class="container">
             <div class="card shadow-sm">
                 <div class="card-header text-primary-emphasis">
-                    <h5 class="mb-0 text-primary">Add Product Page</h5>
+                    <h5 class="mb-0 text-primary">Edit Product Page</h5>
                 </div>
 
                 <form action="{{ route('productCreate') }}" method="post" enctype="multipart/form-data">
