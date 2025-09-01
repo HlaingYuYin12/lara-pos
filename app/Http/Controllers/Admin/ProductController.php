@@ -13,7 +13,7 @@ class ProductController extends Controller
     //product list page
     public function list()
     {
-        $products = Product::get();
+        $products = Product::paginate(3);
         return view('admin.product.list',compact('products'));
     }
 
@@ -56,7 +56,7 @@ class ProductController extends Controller
             'price'       => 'required',
             'description' => 'required',
             'image'       => 'required|mimes:png,jpg,jpeg',
-            'count'       => 'required|max:100',
+            'count'       => 'required|numeric|max:999',
             'category'    => 'required',
         ];
 
