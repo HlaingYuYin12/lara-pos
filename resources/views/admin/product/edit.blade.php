@@ -8,11 +8,13 @@
                     <h5 class="mb-0 text-primary">Edit Product Page</h5>
                 </div>
 
-                <form action="{{ route('productCreate') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('productUpdate') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-4">
+                                <input type="hidden" name="oldImage" value="{{ $products->image}}">
+                                <input type="hidden" name="productId" value="{{ $products->id}}">
                                 <img class="img-thumbnail w-75" id="output"
                                     src="{{ asset('productImages/'.$products->image) }}" alt="">
 
@@ -96,7 +98,7 @@
                                 </div>
 
                                 <a href="{{ route('productList')}}"><button type="button" class="btn btn-dark">Back</button></a>
-                                <button type="button" class="btn btn-primary">Update</button>
+                               <button type="submit" class="btn btn-primary">Update</button>
 
                             </div>
 

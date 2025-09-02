@@ -84,15 +84,49 @@ class ProductController extends Controller
     }
 
 
+    //update products
+    public function update(Request $request){
+        // dd($request->all());
+
+        $this->validationCheck($request, "update");
+
+        $data = $this->requestProductData($request);
+
+        if($request->hasFile('image')){
+            //delete old image
+            $oldImageName = $request->oldImage;
+            // dd($oldImageName);
+
+            if(file_exists(public_path('productImages/'.$oldImageName))){
+                unlink(public_path('productImages/'.$oldImageName));
+            }
+
+
+            //upload new image
+            $fileName = uniqid() . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path().'/productImages/',$fileName);
+            $data['image'] = $fileName;
+
+
+        }else{
+            $data['image'] = $request->oldImage;
+        }
+
+        Product::where('id',$request->productId)->update($data);
+        Alert::success('Update Success', 'Product list is updated successfully');
+        return to_route('productList');
+    }
+
+
     //create update validation check
     private function validationCheck($request, $action)
     {
 
         $rules = [
-            'name'        => 'required|unique:products,name',
+            'name'        => 'required|unique:products,name,'.$request->productId,
             'price'       => 'required',
             'description' => 'required',
-            'image'       => 'required|mimes:png,jpg,jpeg',
+            // 'image'       => 'required|mimes:png,jpg,jpeg',
             'count'       => 'required|numeric|max:999',
             'category'    => 'required',
         ];
@@ -100,6 +134,8 @@ class ProductController extends Controller
         $message = [
             'name.required' => 'နာမည်ဖြည့်ရန်လိုအပ်ပါသည်။',
         ];
+
+        $rules['image'] = $action == "create" ? "required|mimes:png,jpg,jpeg" : "mimes:png,jpg,jpeg";
 
         $validator = $request->validate($rules, $message);
 
