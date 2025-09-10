@@ -8,7 +8,7 @@
                     <form action="{{ route('productList') }}" method="get">
 
                         <div class="input-group mb-3">
-                            <input type="text" name="searchKey" class="form-control" placeholder="Products name..." value="{{ request('searchKey')}}">
+                            <input type="text" name="searchKey" class="form-control" placeholder="Products name..." value="">
                             <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
                                 <i class="fa-solid fa-magnifying-glass"></i></button>
 
