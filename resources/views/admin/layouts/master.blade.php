@@ -83,7 +83,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('paymentList')}}">
                     <i class="fa-solid fa-wallet"></i>
                     <span>Payment Method</span></a>
             </li>
