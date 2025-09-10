@@ -13,7 +13,11 @@ class ProductController extends Controller
     //product list page
     public function list()
     {
-        $products = Product::paginate(3);
+        // dd(request('searchKey'));
+        $products = Product::when(request('searchKey'),function($query){
+                        $query->whereAny(['name','price','count'],'like','%'.request('searchKey').'%');
+                    })
+                    ->paginate(3);
         return view('admin.product.list',compact('products'));
     }
 

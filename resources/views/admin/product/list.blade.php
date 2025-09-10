@@ -4,7 +4,18 @@
     <div class="container-fluid">
         <div class="content">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h4>Product List</h4>
+                <h4>
+                    <form action="{{ route('productList') }}" method="get">
+
+                        <div class="input-group mb-3">
+                            <input type="text" name="searchKey" class="form-control" placeholder="Products name..." value="{{ request('searchKey')}}">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+                                <i class="fa-solid fa-magnifying-glass"></i></button>
+
+                        </div>
+                    </form>
+
+                </h4>
                 <a href="{{ route('productCreatePage') }}" class="btn btn-primary">+ Add Product</a>
             </div>
 
@@ -29,10 +40,10 @@
                                     <td> {{ $item->price }} MMK</td>
                                     <td> {{ $item->count }} </td>
                                     <td style="width: 20%">
-                                        <a href="{{ route('productDetails',$item->id)}}">
+                                        <a href="{{ route('productDetails', $item->id) }}">
                                             <i class="fa-solid fa-eye btn btn-primary w-25"></i>
                                         </a>
-                                        <a href="{{ route('productEdit',$item->id)}}">
+                                        <a href="{{ route('productEdit', $item->id) }}">
                                             <i class="fa-solid fa-pen-to-square btn btn-secondary w-25"></i>
                                         </a>
                                         <a href="{{ route('productDelete', $item->id) }}">
