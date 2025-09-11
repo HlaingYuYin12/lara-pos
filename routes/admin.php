@@ -31,5 +31,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::prefix('payment')->group(function(){
         Route::get('list',[PaymentController::class,'list'])->name('paymentList');
+        Route::get('create',[PaymentController::class,'create'])->name('paymentCreate');
+        Route::post('create',[PaymentController::class,'createForm'])->name('paymentCreateForm');
+
     });
 });

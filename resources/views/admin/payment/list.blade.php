@@ -8,7 +8,7 @@
                     <h5 class="mb-0 text-primary">Payment Method</h5>
                 </div>
 
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{ route('paymentCreate')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row">
@@ -33,6 +33,10 @@
                                             <label for="type" class="form-label mb-3">Payment Type</label>
                                             <select name="type" id="" class="form-control">
                                                 <option value="">Choose payment type...</option>
+
+                                                {{-- @foreach ($types as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->payment_type }}</option>
+                                                @endforeach --}}
                                             </select>
                                         </div>
                                         <div class="mb-3">
